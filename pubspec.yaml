@@ -64,6 +64,7 @@ flutter:
   assets:
     - assets/images/
     - assets/icons/
+    - assets/fonts/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
@@ -79,10 +80,10 @@ flutter:
   fonts:
     - family: Muli
       fonts:
-        - asset: assets/fonts.muli.ttf
-        - asset: assets/fonts/muli.Muli-Bold.ttf
+        - asset: /assets/fonts/muli/Muli.ttf
+        - asset: /assets/fonts/muli/Muli-Bold.ttf
           weight: 700
-        - asset: assets/fonts/muli.Muli-Light.ttf
+        - asset: /assets/fonts/muli.Muli-Light.ttf
           weight: 300
   #   - family: Trajan Pro
   #     fonts:
