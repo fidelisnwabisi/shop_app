@@ -39,6 +39,11 @@ class _BodyState extends State<Body> {
             Expanded(
               flex: 3,
               child: PageView.builder(
+                onPageChanged: (value) {
+                  setState(() {
+                    currentPage = value;
+                  });
+                },
                 itemCount: splashData.length,
                 itemBuilder: (context, index) => SplashContent(
                   image: splashData[index]['image'] ?? '',
@@ -51,6 +56,7 @@ class _BodyState extends State<Body> {
               child: Column(
                 children: [
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: List.generate(
                       splashData.length,
                       (index) => buildDot(index),
@@ -65,8 +71,9 @@ class _BodyState extends State<Body> {
     );
   }
 
-  Container buildDot(int index) {
-    return Container(
+  AnimatedContainer buildDot(int index) {
+    return AnimatedContainer(
+      duration: kAnimationDuration,
       margin: EdgeInsets.only(right: 5),
       height: 6,
       width: currentPage == index ? 20 : 6,
