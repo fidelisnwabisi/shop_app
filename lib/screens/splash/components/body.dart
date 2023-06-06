@@ -53,18 +53,45 @@ class _BodyState extends State<Body> {
             ),
             Expanded(
               flex: 2,
-              child: Column(
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: List.generate(
-                      splashData.length,
-                      (index) => buildDot(index),
+              child: Padding(
+                padding: EdgeInsets.symmetric(
+                    horizontal: getProportionateScreenWidth(20)),
+                child: Column(
+                  children: [
+                    Spacer(),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: List.generate(
+                        splashData.length,
+                        (index) => buildDot(index),
+                      ),
                     ),
-                  )
-                ],
+                    Spacer(
+                      flex: 2,
+                    ),
+                    SizedBox(
+                      width: double.infinity,
+                      height: getProportionateScreenHeight(56),
+                      child: TextButton(
+                        style: TextButton.styleFrom(
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(20)),
+                            foregroundColor: Colors.white,
+                            backgroundColor: kPrimaryColor),
+                        onPressed: () {},
+                        child: Text(
+                          "Continue",
+                          style: TextStyle(
+                              fontSize: getProportionateScreenWidth(18),
+                              fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                    ),
+                    Spacer(),
+                  ],
+                ),
               ),
-            )
+            ),
           ],
         ),
       ),
