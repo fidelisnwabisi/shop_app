@@ -13,6 +13,7 @@ class Body extends StatefulWidget {
 }
 
 class _BodyState extends State<Body> {
+  int currentPage = 0;
   List<Map<String, String>> splashData = [
     {
       "text": "Welcome to Tokoto, Let’s shop!",
@@ -47,10 +48,31 @@ class _BodyState extends State<Body> {
             ),
             Expanded(
               flex: 2,
-              child: SizedBox(),
+              child: Column(
+                children: [
+                  Row(
+                    children: List.generate(
+                      splashData.length,
+                      (index) => buildDot(index),
+                    ),
+                  )
+                ],
+              ),
             )
           ],
         ),
+      ),
+    );
+  }
+
+  Container buildDot(int index) {
+    return Container(
+      margin: EdgeInsets.only(right: 5),
+      height: 6,
+      width: currentPage == index ? 20 : 6,
+      decoration: BoxDecoration(
+        color: currentPage == index ? kPrimaryColor : Color(0xFFD8D8D8),
+        borderRadius: BorderRadius.circular(3),
       ),
     );
   }
