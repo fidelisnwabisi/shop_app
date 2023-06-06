@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shop_app/size_config.dart';
 
 class Body extends StatefulWidget {
   const Body({super.key});
@@ -13,10 +14,20 @@ class _BodyState extends State<Body> {
     return Column(
       children: [
         Expanded(
-          child: Container(
-            color: Colors.black,
+          flex: 3,
+          child: Column(
+            children: [
+              Text(
+                "TOKYO",
+                style: TextStyle(fontSize: getProportionateScreenWidth(36)),
+              )
+            ],
           ),
         ),
+        Expanded(
+          flex: 2,
+          child: SizedBox(),
+        )
       ],
     );
   }
