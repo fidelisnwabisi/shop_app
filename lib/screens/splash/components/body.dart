@@ -4,6 +4,7 @@ import 'package:shop_app/size_config.dart';
 
 // This is the best practice
 import '../../../components/default_button.dart';
+import '../../sign_in/sign_in_screen.dart';
 import '../components/splash_content.dart';
 
 class Body extends StatefulWidget {
@@ -69,8 +70,10 @@ class _BodyState extends State<Body> {
                     ),
                     Spacer(flex: 3),
                     DefaultButton(
-                      text: "COntinue",
-                      press: () {},
+                      text: "Continue",
+                      press: () {
+                        Navigator.pushNamed(context, SignInScreen.routeName);
+                      },
                     ),
                     Spacer(),
                   ],
