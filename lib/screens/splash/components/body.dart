@@ -3,6 +3,7 @@ import 'package:shop_app/constants.dart';
 import 'package:shop_app/size_config.dart';
 
 // This is the best practice
+import '../../../components/default_button.dart';
 import '../components/splash_content.dart';
 
 class Body extends StatefulWidget {
@@ -66,26 +67,10 @@ class _BodyState extends State<Body> {
                         (index) => buildDot(index),
                       ),
                     ),
-                    Spacer(
-                      flex: 2,
-                    ),
-                    SizedBox(
-                      width: double.infinity,
-                      height: getProportionateScreenHeight(56),
-                      child: TextButton(
-                        style: TextButton.styleFrom(
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(20)),
-                            foregroundColor: Colors.white,
-                            backgroundColor: kPrimaryColor),
-                        onPressed: () {},
-                        child: Text(
-                          "Continue",
-                          style: TextStyle(
-                              fontSize: getProportionateScreenWidth(18),
-                              fontWeight: FontWeight.bold),
-                        ),
-                      ),
+                    Spacer(flex: 3),
+                    DefaultButton(
+                      text: "COntinue",
+                      press: () {},
                     ),
                     Spacer(),
                   ],
