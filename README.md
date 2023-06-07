@@ -15,5 +15,14 @@ For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
 
-# Time Stamp
-done 
+# Sourceof the Tutorial
+[Complete E-Commerce Flutter UI](https://www.youtube.com/playlist?list=PLxUBb2A_UUy8OlaNZpS2mfL8xpHcnd_Af)
+
+## Episode 1 Onboarding Screen
+
+[Onboarding Screen - Complete E-Commerce App Flutter UI - Ep 1 - Speed Code ](https://youtu.be/YEJPg2jwzI8)
+
+
+### Done 
+![Alt text](assets/screenshots/Sopp%20App.GIF)
+
