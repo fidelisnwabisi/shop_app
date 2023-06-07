@@ -26,3 +26,8 @@ samples, guidance on mobile development, and a full API reference.
 ### Done 
 ![Alt text](assets/screenshots/Sopp%20App.GIF)
 
+## Episode 2 Login Page
+
+[Login Page - Complete E-Commerce App Flutter UI - Ep 2 - Speed Code](https://youtu.be/0Z-IgS267xw)
+  
+## Time Stamp
