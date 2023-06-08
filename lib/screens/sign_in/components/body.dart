@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:shop_app/components/custom_suffixIcon.dart';
 import 'package:shop_app/components/default_button.dart';
+import 'package:shop_app/components/form_error.dart';
+import 'package:shop_app/constants.dart';
 import 'package:shop_app/size_config.dart';
 
 class Body extends StatelessWidget {
@@ -29,6 +30,7 @@ class Body extends StatelessWidget {
                 "Sign in with your Email and Password \nor continue with Social Media",
                 textAlign: TextAlign.center,
               ),
+              SizedBox(height: getProportionateScreenHeight(20)),
               SignForm(),
             ],
           ),
@@ -47,7 +49,9 @@ class SignForm extends StatefulWidget {
 
 class _SignFormState extends State<SignForm> {
   final _formKey = GlobalKey<FormState>();
-  final List<String> errors = ["Demo"];
+  late String email;
+  late String password;
+  final List<String> errors = [];
 
   @override
   Widget build(BuildContext context) {
@@ -60,9 +64,14 @@ class _SignFormState extends State<SignForm> {
           buildPasswordFormField(),
           SizedBox(height: getProportionateScreenHeight(20)),
           ErrorForm(errors: errors),
+          SizedBox(height: getProportionateScreenHeight(20)),
           DefaultButton(
             text: "Continue",
-            press: () {},
+            press: () {
+              if (_formKey.currentState!.validate()) {
+                _formKey.currentState!.save();
+              }
+            },
           )
         ],
       ),
@@ -72,6 +81,31 @@ class _SignFormState extends State<SignForm> {
   TextFormField buildPasswordFormField() {
     return TextFormField(
       obscureText: true,
+      onSaved: (newValue) => password = newValue!,
+      onChanged: (value) {
+        if (value.isNotEmpty && errors.contains(kPassNullError)) {
+          setState(() {
+            errors.remove(kPassNullError);
+          });
+        } else if (value.length >= 8 && errors.contains(kShortPassError)) {
+          setState(() {
+            errors.remove(kShortPassError);
+          });
+        }
+        return null;
+      },
+      validator: (value) {
+        if (value!.isEmpty && !errors.contains(kPassNullError)) {
+          setState(() {
+            errors.add(kPassNullError);
+          });
+        } else if (value.length < 8 && !errors.contains(kShortPassError)) {
+          setState(() {
+            errors.add(kShortPassError);
+          });
+        }
+        return null;
+      },
       decoration: InputDecoration(
         labelText: "Password",
         hintText: "Enter your Password",
@@ -86,10 +120,29 @@ class _SignFormState extends State<SignForm> {
   TextFormField buildEmailFormField() {
     return TextFormField(
       keyboardType: TextInputType.emailAddress,
-      validator: (value) {
-        if (value!.isEmpty) {
+      onSaved: (newValue) => email = newValue!,
+      onChanged: (value) {
+        if (value.isNotEmpty && errors.contains(kEmailNullError)) {
           setState(() {
-            errors.add("Please enter your email address");
+            errors.remove(kEmailNullError);
+          });
+        } else if (emailValidatorRegExp.hasMatch(value) &&
+            errors.contains(kInvalidEmailError)) {
+          setState(() {
+            errors.remove(kInvalidEmailError);
+          });
+        }
+        return null;
+      },
+      validator: (value) {
+        if (value!.isEmpty && !errors.contains(kEmailNullError)) {
+          setState(() {
+            errors.add(kEmailNullError);
+          });
+        } else if (!emailValidatorRegExp.hasMatch(value) &&
+            !errors.contains(kInvalidEmailError)) {
+          setState(() {
+            errors.add(kInvalidEmailError);
           });
         }
         return null;
@@ -102,37 +155,6 @@ class _SignFormState extends State<SignForm> {
         floatingLabelBehavior: FloatingLabelBehavior.always,
         suffixIcon: CustomSuffixIcon(svgIcon: "assets/icons/Mail.svg"),
       ),
-    );
-  }
-}
-
-class ErrorForm extends StatelessWidget {
-  const ErrorForm({
-    super.key,
-    required this.errors,
-  });
-
-  final List<String> errors;
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: List.generate(
-          errors.length, (index) => formErrorText(error: errors[index])),
-    );
-  }
-
-  Row formErrorText({required String error}) {
-    return Row(
-      children: [
-        SvgPicture.asset(
-          "assets/icons/Error.svg",
-          height: getProportionateScreenHeight(14),
-          width: getProportionateScreenHeight(14),
-        ),
-        SizedBox(width: getProportionateScreenHeight(10)),
-        Text(error)
-      ],
     );
   }
 }
