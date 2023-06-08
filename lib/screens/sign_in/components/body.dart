@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:shop_app/constants.dart';
 import 'package:shop_app/size_config.dart';
 
@@ -56,21 +57,35 @@ class _SignFormState extends State<SignForm> {
               // If you are using latest version of flutter then label text and hint text shown like this
               // If you are using flutter less than 1.20.* then maybe this will not work properly
               floatingLabelBehavior: FloatingLabelBehavior.always,
-              contentPadding:
-                  EdgeInsets.symmetric(horizontal: 42, vertical: 20),
-              enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(28),
-                borderSide: BorderSide(color: kTextColor),
-                gapPadding: 10,
-              ),
-              focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(28),
-                borderSide: BorderSide(color: kTextColor),
-                gapPadding: 10,
-              ),
+              suffixIcon: CustomSuffixIcon(svgIcon: "assets/icons/Mail.svg"),
             ),
-          ),
+          )
         ],
+      ),
+    );
+  }
+}
+
+class CustomSuffixIcon extends StatelessWidget {
+  const CustomSuffixIcon({
+    super.key,
+    required this.svgIcon,
+  });
+
+  final String svgIcon;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.fromLTRB(
+        0,
+        getProportionateScreenWidth(20),
+        getProportionateScreenWidth(20),
+        getProportionateScreenWidth(20),
+      ),
+      child: SvgPicture.asset(
+        svgIcon,
+        height: getProportionateScreenWidth(18),
       ),
     );
   }
