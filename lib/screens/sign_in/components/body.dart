@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:shop_app/constants.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:shop_app/components/custom_suffixIcon.dart';
+import 'package:shop_app/components/default_button.dart';
 import 'package:shop_app/size_config.dart';
 
 class Body extends StatelessWidget {
@@ -45,48 +46,93 @@ class SignForm extends StatefulWidget {
 }
 
 class _SignFormState extends State<SignForm> {
+  final _formKey = GlobalKey<FormState>();
+  final List<String> errors = ["Demo"];
+
   @override
   Widget build(BuildContext context) {
     return Form(
+      key: _formKey,
       child: Column(
         children: [
-          TextFormField(
-            decoration: InputDecoration(
-              labelText: "Email",
-              hintText: "Enter your Email",
-              // If you are using latest version of flutter then label text and hint text shown like this
-              // If you are using flutter less than 1.20.* then maybe this will not work properly
-              floatingLabelBehavior: FloatingLabelBehavior.always,
-              suffixIcon: CustomSuffixIcon(svgIcon: "assets/icons/Mail.svg"),
-            ),
+          buildEmailFormField(),
+          SizedBox(height: getProportionateScreenHeight(20)),
+          buildPasswordFormField(),
+          SizedBox(height: getProportionateScreenHeight(20)),
+          ErrorForm(errors: errors),
+          DefaultButton(
+            text: "Continue",
+            press: () {},
           )
         ],
       ),
     );
   }
+
+  TextFormField buildPasswordFormField() {
+    return TextFormField(
+      obscureText: true,
+      decoration: InputDecoration(
+        labelText: "Password",
+        hintText: "Enter your Password",
+        // If you are using latest version of flutter then label text and hint text shown like this
+        // If you are using flutter less than 1.20.* then maybe this will not work properly
+        floatingLabelBehavior: FloatingLabelBehavior.always,
+        suffixIcon: CustomSuffixIcon(svgIcon: "assets/icons/Lock.svg"),
+      ),
+    );
+  }
+
+  TextFormField buildEmailFormField() {
+    return TextFormField(
+      keyboardType: TextInputType.emailAddress,
+      validator: (value) {
+        if (value!.isEmpty) {
+          setState(() {
+            errors.add("Please enter your email address");
+          });
+        }
+        return null;
+      },
+      decoration: InputDecoration(
+        labelText: "Email",
+        hintText: "Enter your Email",
+        // If you are using latest version of flutter then label text and hint text shown like this
+        // If you are using flutter less than 1.20.* then maybe this will not work properly
+        floatingLabelBehavior: FloatingLabelBehavior.always,
+        suffixIcon: CustomSuffixIcon(svgIcon: "assets/icons/Mail.svg"),
+      ),
+    );
+  }
 }
 
-class CustomSuffixIcon extends StatelessWidget {
-  const CustomSuffixIcon({
+class ErrorForm extends StatelessWidget {
+  const ErrorForm({
     super.key,
-    required this.svgIcon,
+    required this.errors,
   });
 
-  final String svgIcon;
+  final List<String> errors;
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.fromLTRB(
-        0,
-        getProportionateScreenWidth(20),
-        getProportionateScreenWidth(20),
-        getProportionateScreenWidth(20),
-      ),
-      child: SvgPicture.asset(
-        svgIcon,
-        height: getProportionateScreenWidth(18),
-      ),
+    return Column(
+      children: List.generate(
+          errors.length, (index) => formErrorText(error: errors[index])),
+    );
+  }
+
+  Row formErrorText({required String error}) {
+    return Row(
+      children: [
+        SvgPicture.asset(
+          "assets/icons/Error.svg",
+          height: getProportionateScreenHeight(14),
+          width: getProportionateScreenHeight(14),
+        ),
+        SizedBox(width: getProportionateScreenHeight(10)),
+        Text(error)
+      ],
     );
   }
 }
