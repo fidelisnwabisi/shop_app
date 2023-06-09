@@ -51,6 +51,7 @@ class _SignFormState extends State<SignForm> {
   final _formKey = GlobalKey<FormState>();
   late String email;
   late String password;
+  late bool remember;
   final List<String> errors = [];
 
   @override
@@ -60,10 +61,30 @@ class _SignFormState extends State<SignForm> {
       child: Column(
         children: [
           buildEmailFormField(),
-          SizedBox(height: getProportionateScreenHeight(20)),
+          SizedBox(height: getProportionateScreenHeight(30)),
           buildPasswordFormField(),
-          SizedBox(height: getProportionateScreenHeight(20)),
+          SizedBox(height: getProportionateScreenHeight(30)),
+          Row(
+            children: [
+              Checkbox(
+                value: remember,
+                activeColor: kPrimaryColor,
+                onChanged: (value) {
+                  setState(() {
+                    remember = value!;
+                  });
+                },
+              ),
+              Text("Remember me"),
+              Spacer(),
+              Text(
+                "Forgot Password",
+                style: TextStyle(decoration: TextDecoration.underline),
+              )
+            ],
+          ),
           ErrorForm(errors: errors),
+          SizedBox(height: getProportionateScreenHeight(20)),
           SizedBox(height: getProportionateScreenHeight(20)),
           DefaultButton(
             text: "Continue",
