@@ -51,7 +51,7 @@ class _SignFormState extends State<SignForm> {
   final _formKey = GlobalKey<FormState>();
   late String email;
   late String password;
-  late bool remember;
+  late bool remember = false;
   final List<String> errors = [];
 
   @override
