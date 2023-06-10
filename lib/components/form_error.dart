@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:shop_app/size_config.dart';
 
-class ErrorForm extends StatelessWidget {
-  const ErrorForm({
+class FormError extends StatelessWidget {
+  const FormError({
     super.key,
     required this.errors,
   });
