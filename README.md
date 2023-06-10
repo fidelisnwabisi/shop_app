@@ -24,7 +24,7 @@ samples, guidance on mobile development, and a full API reference.
 
 
 ### Done 
-![Alt text](assets/screenshots/Sopp%20App.GIF)
+![Alt text](assets/screenshots/Shop%20App.GIF)
 
 ## Episode 2 Login Page
 
