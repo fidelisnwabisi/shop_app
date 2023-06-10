@@ -50,11 +50,13 @@ class ForgotPassForm extends StatefulWidget {
 }
 
 class _ForgotPassFormState extends State<ForgotPassForm> {
+  final _formkey = GlobalKey<FormState>();
   List<String> errors = [];
   late String email;
   @override
   Widget build(BuildContext context) {
     return Form(
+      key: _formkey,
       child: Column(
         children: [
           TextFormField(
@@ -100,7 +102,12 @@ class _ForgotPassFormState extends State<ForgotPassForm> {
           SizedBox(height: SizeConfig.screenHeight * 0.1),
           DefaultButton(
             text: 'Continue',
-            press: () {},
+            press: () {
+              if (_formkey.currentState!.validate()) {
+                // Do what you wamt to do to get the OTP
+                // to change your password
+              }
+            },
           ),
           SizedBox(height: SizeConfig.screenHeight * 0.1),
           NoAccountText()
