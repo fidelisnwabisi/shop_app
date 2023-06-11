@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'size_config.dart';
+
 const kPrimaryColor = Color(0xFFFF7643);
 const kPrimaryLightolor = Color(0xFFFFECDF);
 const kPrimaryGradientColor = LinearGradient(
@@ -11,6 +13,12 @@ const kSecondaryColor = Color(0xff979797);
 const kTextColor = Color(0x77757575);
 
 const kAnimationDuration = Duration(microseconds: 200);
+
+final headingStyle = TextStyle(
+    fontSize: getProportionateScreenWidth(28),
+    fontWeight: FontWeight.bold,
+    color: Colors.black,
+    height: 1.5);
 
 // Form Error
 final RegExp emailValidatorRegExp =
