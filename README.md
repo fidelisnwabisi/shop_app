@@ -33,3 +33,11 @@ samples, guidance on mobile development, and a full API reference.
 
 ### Done 
 <video src="assets/screenshots/Episode%202.mp4" controls title="Episode 2: Login Page Result"></video>
+
+
+## Episode 3 Sign Up And OTP Screen
+
+[Sign Up And OTP Screen - Complete E-Commerce App Flutter UI - Ep 3 - Speed Code](https://youtu.be/iZqxIvlzXVw)
+  
+## Time Stamp
+00:00
