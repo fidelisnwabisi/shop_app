@@ -24,11 +24,12 @@ samples, guidance on mobile development, and a full API reference.
 
 
 ### Done 
-![Alt text](assets/screenshots/Shop%20App.GIF)
+<video src="assets/screenshots/Episode%201.mp4" controls title="Episode 1: Onboarding Screen Result"></video>
 
 ## Episode 2 Login Page
 
-[Login Page - Complete E-Commerce App Flutter UI - Ep 2 - Speed Code](https://youtu.be/0Z-IgS267xw)
-  
-## Time Stamp
-29:56
+[Onboarding Screen - Complete E-Commerce App Flutter UI - Ep 1 - Speed Code ](https://youtu.be/YEJPg2jwzI8)
+
+
+### Done 
+<video src="assets/screenshots/Episode%202.mp4" controls title="Episode 2: Login Page Result"></video>
