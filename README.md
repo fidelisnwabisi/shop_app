@@ -24,7 +24,7 @@ samples, guidance on mobile development, and a full API reference.
 
 
 ### Done 
-<video src="assets/screenshots/Episode%201.mp4" controls title="Episode 1: Onboarding Screen Result"></video>
+![Alt text](assets/screenshots/Episode%201.gif)
 
 ## Episode 2 Login Page
 
@@ -32,7 +32,7 @@ samples, guidance on mobile development, and a full API reference.
 
 
 ### Done 
-<video src="assets/screenshots/Episode%202.mp4" controls title="Episode 2: Login Page Result"></video>
+![Alt text](assets/screenshots/Episode%202.gif)
 
 
 ## Episode 3 Sign Up And OTP Screen
