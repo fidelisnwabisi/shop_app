@@ -1,4 +1,4 @@
-# shop_app
+# Shop App Tutorial
 
 A new Flutter project.
 
@@ -15,7 +15,7 @@ For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
 
-# Sourceof the Tutorial
+# Source of the Tutorial
 [Complete E-Commerce Flutter UI](https://www.youtube.com/playlist?list=PLxUBb2A_UUy8OlaNZpS2mfL8xpHcnd_Af)
 
 ## Episode 1 Onboarding Screen
