@@ -10,18 +10,22 @@ class Body extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: double.infinity,
-      child: Column(
-        children: [
-          Text(
-            "Register Account",
-            style: headingStyle,
-          ),
-          Text(
-            "Complete your details or continue \nwith Social Media",
-            textAlign: TextAlign.center,
-          ),
-          SignUpForm()
-        ],
+      child: Padding(
+        padding:
+            EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20)),
+        child: Column(
+          children: [
+            Text(
+              "Register Account",
+              style: headingStyle,
+            ),
+            Text(
+              "Complete your details or continue \nwith Social Media",
+              textAlign: TextAlign.center,
+            ),
+            SignUpForm()
+          ],
+        ),
       ),
     );
   }
