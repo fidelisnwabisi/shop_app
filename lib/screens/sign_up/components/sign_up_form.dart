@@ -3,29 +3,30 @@ import 'package:shop_app/components/custom_suffixIcon.dart';
 import 'package:shop_app/components/default_button.dart';
 import 'package:shop_app/components/form_error.dart';
 import 'package:shop_app/constants.dart';
+import 'package:shop_app/screens/complete_profile/complete_profile_screen.dart';
 import 'package:shop_app/size_config.dart';
 
 class SignUpForm extends StatefulWidget {
-  const SignUpForm({super.key});
-
   @override
-  State<SignUpForm> createState() => _SignUpFormState();
+  _SignUpFormState createState() => _SignUpFormState();
 }
 
 class _SignUpFormState extends State<SignUpForm> {
   final _formKey = GlobalKey<FormState>();
-  late String email;
-  late String password;
-  late String confirm_password;
+  String? email;
+  String? password;
+  String? conform_password;
+  bool remember = false;
   final List<String> errors = [];
-  void addError({required String error}) {
+
+  void addError({String? error}) {
     if (!errors.contains(error))
       setState(() {
-        errors.add(error);
+        errors.add(error!);
       });
   }
 
-  void removeError({required String error}) {
+  void removeError({String? error}) {
     if (errors.contains(error))
       setState(() {
         errors.remove(error);
@@ -42,35 +43,41 @@ class _SignUpFormState extends State<SignUpForm> {
           SizedBox(height: getProportionateScreenHeight(30)),
           buildPasswordFormField(),
           SizedBox(height: getProportionateScreenHeight(30)),
-          buildConfPasswordFormField(),
+          buildConfPassFormField(),
           FormError(errors: errors),
           SizedBox(height: getProportionateScreenHeight(40)),
           DefaultButton(
-              text: "Continue",
-              press: () {
-                if (_formKey.currentState!.validate()) {
-                  // Go to complete profile screen
-                }
-              })
+            text: "Continue",
+            press: () {
+              if (_formKey.currentState!.validate()) {
+                _formKey.currentState!.save();
+                // if all are valid then go to success screen
+                Navigator.pushNamed(context, CompleteProfileScreen.routeName);
+              }
+            },
+          ),
         ],
       ),
     );
   }
 
-  TextFormField buildConfPasswordFormField() {
+  TextFormField buildConfPassFormField() {
     return TextFormField(
       obscureText: true,
-      onSaved: (newValue) => password = newValue!,
+      onSaved: (newValue) => conform_password = newValue,
       onChanged: (value) {
-        if (password == confirm_password) {
+        if (value.isNotEmpty) {
+          removeError(error: kPassNullError);
+        } else if (value.isNotEmpty && password == conform_password) {
           removeError(error: kMatchPassError);
         }
-        return null;
+        conform_password = value;
       },
       validator: (value) {
         if (value!.isEmpty) {
+          addError(error: kPassNullError);
           return "";
-        } else if (password != confirm_password) {
+        } else if ((password != value)) {
           addError(error: kMatchPassError);
           return "";
         }
@@ -90,7 +97,7 @@ class _SignUpFormState extends State<SignUpForm> {
   TextFormField buildPasswordFormField() {
     return TextFormField(
       obscureText: true,
-      onSaved: (newValue) => password = newValue!,
+      onSaved: (newValue) => password = newValue,
       onChanged: (value) {
         if (value.isNotEmpty) {
           removeError(error: kPassNullError);
@@ -98,7 +105,6 @@ class _SignUpFormState extends State<SignUpForm> {
           removeError(error: kShortPassError);
         }
         password = value;
-        return null;
       },
       validator: (value) {
         if (value!.isEmpty) {
@@ -124,14 +130,13 @@ class _SignUpFormState extends State<SignUpForm> {
   TextFormField buildEmailFormField() {
     return TextFormField(
       keyboardType: TextInputType.emailAddress,
-      onSaved: (newValue) => email = newValue!,
+      onSaved: (newValue) => email = newValue,
       onChanged: (value) {
         if (value.isNotEmpty) {
           removeError(error: kEmailNullError);
         } else if (emailValidatorRegExp.hasMatch(value)) {
           removeError(error: kInvalidEmailError);
         }
-        password = value;
         return null;
       },
       validator: (value) {
