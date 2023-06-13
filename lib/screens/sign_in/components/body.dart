@@ -17,44 +17,46 @@ class Body extends StatelessWidget {
           padding:
               EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20)),
           child: SingleChildScrollView(
-            child: Column(
-              children: [
-                SizedBox(height: SizeConfig.screenHeight * 0.04),
-                Text(
-                  "Welcome Back",
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: getProportionateScreenWidth(28),
-                    fontWeight: FontWeight.bold,
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  SizedBox(height: SizeConfig.screenHeight * 0.04),
+                  Text(
+                    "Welcome Back",
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: getProportionateScreenWidth(28),
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
-                ),
-                Text(
-                  "Sign in with your Email and Password \nor continue with Social Media",
-                  textAlign: TextAlign.center,
-                ),
-                SizedBox(height: SizeConfig.screenHeight * 0.04),
-                SignForm(),
-                SizedBox(height: SizeConfig.screenHeight * 0.08),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    SocialCard(
-                      icon: 'assets/icons/google-icon.svg',
-                      press: () {},
-                    ),
-                    SocialCard(
-                      icon: 'assets/icons/facebook-2.svg',
-                      press: () {},
-                    ),
-                    SocialCard(
-                      icon: 'assets/icons/twitter.svg',
-                      press: () {},
-                    ),
-                  ],
-                ),
-                SizedBox(height: getProportionateScreenHeight(20)),
-                NoAccountText()
-              ],
+                  Text(
+                    "Sign in with your Email and Password \nor continue with Social Media",
+                    textAlign: TextAlign.center,
+                  ),
+                  SizedBox(height: SizeConfig.screenHeight * 0.04),
+                  SignForm(),
+                  SizedBox(height: SizeConfig.screenHeight * 0.08),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      SocialCard(
+                        icon: 'assets/icons/google-icon.svg',
+                        press: () {},
+                      ),
+                      SocialCard(
+                        icon: 'assets/icons/facebook-2.svg',
+                        press: () {},
+                      ),
+                      SocialCard(
+                        icon: 'assets/icons/twitter.svg',
+                        press: () {},
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: getProportionateScreenHeight(20)),
+                  NoAccountText()
+                ],
+              ),
             ),
           ),
         ),
