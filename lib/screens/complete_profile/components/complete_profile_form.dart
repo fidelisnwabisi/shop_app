@@ -3,6 +3,7 @@ import 'package:shop_app/components/custom_suffixIcon.dart';
 import 'package:shop_app/components/default_button.dart';
 import 'package:shop_app/components/form_error.dart';
 import 'package:shop_app/constants.dart';
+import 'package:shop_app/screens/otp_screen/otp_screen.dart';
 import 'package:shop_app/size_config.dart';
 
 class CompleteProfileForm extends StatefulWidget {
@@ -57,6 +58,7 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
                 press: () {
                   if (_formKey.currentState!.validate()) {
                     // Go to OTP Screen
+                    Navigator.pushNamed(context, OTPScreen.routeName);
                   }
                 })
           ],
