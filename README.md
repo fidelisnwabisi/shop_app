@@ -46,7 +46,7 @@ samples, guidance on mobile development, and a full API reference.
 
 [Sign Up And OTP Screen - Complete E-Commerce App Flutter UI - Ep 3 - Speed Code](https://youtu.be/GwhpedXmc4M)
 
-### Time Stamp
-23:35
+### Done 
+![Alt text](assets/screenshots/Episode%204.gif)
 
 # Converted GIFs at [ezGIF](https://ezgif.com)
