@@ -31,13 +31,14 @@ class Body extends StatelessWidget {
               text: "Popular Product",
               press: () {},
             ),
-            Column(
-              children: [
-                SizedBox(
-                  width: getProportionateScreenWidth(140),
-                  child: AspectRatio(
+            SizedBox(
+              width: getProportionateScreenWidth(140),
+              child: Column(
+                children: [
+                  AspectRatio(
                     aspectRatio: 1.02,
                     child: Container(
+                      padding: EdgeInsets.all(getProportionateScreenWidth(20)),
                       decoration: BoxDecoration(
                         color: kSecondaryColor.withOpacity(0.1),
                         borderRadius: BorderRadius.circular(15),
@@ -45,8 +46,13 @@ class Body extends StatelessWidget {
                       child: Image.asset(demoProducts[0].images[0]),
                     ),
                   ),
-                ),
-              ],
+                  Text(
+                    demoProducts[0].title,
+                    style: TextStyle(color: Colors.black),
+                    maxLines: 2,
+                  )
+                ],
+              ),
             )
           ],
         ),
