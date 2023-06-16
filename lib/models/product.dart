@@ -91,11 +91,11 @@ List<Product> demoProducts = [
       Color(0xFFDECB9C),
       Colors.white,
     ],
-    title: "Logitech Head",
+    title: "Logitech Headset - Gaming",
     price: 20.20,
     description: description,
     rating: 4.1,
-    isFavourite: true,
+    isPopular: true,
   ),
 ];
 
