@@ -49,4 +49,11 @@ samples, guidance on mobile development, and a full API reference.
 ### Done 
 ![Alt text](assets/screenshots/Episode%204.gif)
 
+## Episode 5 Product Details Screen
+
+[Product Details Screen - Complete E-Commerce App Flutter UI - Ep 5 - Speed Code](https://youtu.be/EED7eWhXoc8)
+
+### Time Stamp
+00:00
+
 # Converted GIFs at [ezGIF](https://ezgif.com)
