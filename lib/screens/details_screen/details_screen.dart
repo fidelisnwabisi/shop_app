@@ -13,7 +13,10 @@ class DetailsScreen extends StatelessWidget {
       backgroundColor: Color(0xFFF5F6F9),
       appBar: AppBar(
         backgroundColor: Colors.transparent,
-        leading: RoundedIconbtn(),
+        leading: RoundedIconbtn(
+          iconData: Icons.arrow_back_ios,
+          press: () => Navigator.pop(context),
+        ),
       ),
     );
   }
@@ -22,7 +25,12 @@ class DetailsScreen extends StatelessWidget {
 class RoundedIconbtn extends StatelessWidget {
   const RoundedIconbtn({
     super.key,
+    required this.iconData,
+    required this.press,
   });
+
+  final IconData iconData;
+  final GestureTapCallback press;
 
   @override
   Widget build(BuildContext context) {
@@ -35,9 +43,9 @@ class RoundedIconbtn extends StatelessWidget {
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
             backgroundColor: Colors.white),
-        onPressed: () {},
+        onPressed: press,
         child: Icon(
-          Icons.arrow_back_ios,
+          iconData,
           color: Colors.black,
         ),
       ),
