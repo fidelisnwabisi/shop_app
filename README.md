@@ -54,6 +54,6 @@ samples, guidance on mobile development, and a full API reference.
 [Product Details Screen - Complete E-Commerce App Flutter UI - Ep 5 - Speed Code](https://youtu.be/EED7eWhXoc8)
 
 ### Time Stamp
-17:05
+19:49
 
 # Converted GIFs at [ezGIF](https://ezgif.com)
