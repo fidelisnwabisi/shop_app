@@ -5,20 +5,25 @@ import 'package:shop_app/models/product.dart';
 import 'package:shop_app/screens/details_screen/components/custom_app_bar.dart';
 import 'package:shop_app/size_config.dart';
 
+import 'components/body.dart';
+
 class DetailsScreen extends StatelessWidget {
   static String routeName = "/details";
 
   @override
   Widget build(BuildContext context) {
-    final ProductDetailsArguments agrs =
+    final ProductDetailsArguments arguments =
         ModalRoute.of(context)!.settings.arguments as ProductDetailsArguments;
     return Scaffold(
+      // by default our backgroung is white
       backgroundColor: Color(0xFFF5F6F9),
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(AppBar().preferredSize.height),
-        child: CustomAppBar(rating: agrs.product.rating),
+        child: CustomAppBar(rating: arguments.product.rating),
       ),
-      // body: Body(product: agrs.product),
+      body: Body(
+        product: arguments.product,
+      ),
     );
   }
 }
