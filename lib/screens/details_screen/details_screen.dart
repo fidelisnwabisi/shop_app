@@ -1,24 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:shop_app/components/rounded_icon_btn.dart';
 import 'package:shop_app/models/product.dart';
+import 'package:shop_app/screens/details_screen/components/custom_app_bar.dart';
 import 'package:shop_app/size_config.dart';
 
 class DetailsScreen extends StatelessWidget {
-  const DetailsScreen({super.key});
-  static String routeName = "/details_screen";
+  static String routeName = "/details";
 
   @override
   Widget build(BuildContext context) {
+    final ProductDetailsArguments agrs =
+        ModalRoute.of(context)!.settings.arguments as ProductDetailsArguments;
     return Scaffold(
-      // By default the background color is white
       backgroundColor: Color(0xFFF5F6F9),
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        leading: RoundedIconbtn(
-          iconData: Icons.arrow_back_ios,
-          press: () => Navigator.pop(context),
-        ),
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(AppBar().preferredSize.height),
+        child: CustomAppBar(rating: agrs.product.rating),
       ),
+      // body: Body(product: agrs.product),
     );
   }
 }
