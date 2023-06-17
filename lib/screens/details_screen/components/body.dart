@@ -5,6 +5,7 @@ import 'package:shop_app/models/product.dart';
 import 'package:shop_app/size_config.dart';
 import 'product_description.dart';
 import 'product_image.dart';
+import 'top_rounded_container.dart';
 
 class Body extends StatelessWidget {
   final Product product;
@@ -23,35 +24,6 @@ class Body extends StatelessWidget {
           ),
         ),
       ],
-    );
-  }
-}
-
-class TopRoundedContainer extends StatelessWidget {
-  const TopRoundedContainer({
-    super.key,
-    required this.color,
-    required this.child,
-  });
-
-  final Color color;
-  final Widget child;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.only(top: getProportionateScreenWidth(20)),
-      padding: EdgeInsets.only(top: getProportionateScreenWidth(20)),
-      width: double.infinity,
-      height: 300,
-      decoration: BoxDecoration(
-        color: color,
-        borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(40),
-          topRight: Radius.circular(40),
-        ),
-      ),
-      child: child,
     );
   }
 }
