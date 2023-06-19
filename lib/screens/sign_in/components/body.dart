@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:shop_app/components/no_account_text.dart';
 import 'package:shop_app/components/social_card.dart';
 import 'package:shop_app/size_config.dart';
-
-import 'sign_form.dart';
+import 'usernames.dart';
 
 class Body extends StatelessWidget {
   const Body({super.key});
@@ -34,7 +33,13 @@ class Body extends StatelessWidget {
                     textAlign: TextAlign.center,
                   ),
                   SizedBox(height: SizeConfig.screenHeight * 0.04),
-                  SignForm(),
+                  // SignForm(),
+
+                  // Using Dropdown to display list of users from fakestoreapi
+                  // DropdownButtonExample(), // this is a sample dropdown
+                  FakeStoreAPIUsername(),
+
+                  // program continues
                   SizedBox(height: SizeConfig.screenHeight * 0.08),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
