@@ -18,9 +18,13 @@ class Body extends StatelessWidget {
         ProductImage(product: product),
         TopRoundedContainer(
           color: Colors.white,
-          child: ProductDescription(
-            product: product,
-            pressOnSeeMore: () {},
+          child: Column(
+            children: [
+              ProductDescription(
+                product: product,
+                pressOnSeeMore: () {},
+              ),
+            ],
           ),
         ),
       ],
