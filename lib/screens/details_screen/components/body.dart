@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:shop_app/components/rounded_icon_btn.dart';
 import 'package:shop_app/constants.dart';
 import 'package:shop_app/models/product.dart';
 import 'package:shop_app/size_config.dart';
@@ -25,7 +26,7 @@ class Body extends StatelessWidget {
                 pressOnSeeMore: () {},
               ),
               TopRoundedContainer(
-                color: Color(0xFF6f7f9),
+                color: Color.fromARGB(15, 50, 68, 104),
                 child: ColorDots(product: product),
               )
             ],
@@ -46,6 +47,8 @@ class ColorDots extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // For demo we use fixed value
+    int selectedColor = 3;
     return Padding(
       padding:
           EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20)),
@@ -53,8 +56,21 @@ class ColorDots extends StatelessWidget {
         children: [
           ...List.generate(
             product.colors.length,
-            (index) => ColorDot(color: product.colors[index]),
+            (index) => ColorDot(
+              color: product.colors[index],
+              isSelected: selectedColor == index,
+            ),
           ),
+          Spacer(),
+          RoundedIconbtn(
+            iconData: Icons.remove,
+            press: () {},
+          ),
+          SizedBox(width: getProportionateScreenWidth(15)),
+          RoundedIconbtn(
+            iconData: Icons.add,
+            press: () {},
+          )
         ],
       ),
     );
