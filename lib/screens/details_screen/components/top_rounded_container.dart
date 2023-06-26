@@ -17,7 +17,6 @@ class TopRoundedContainer extends StatelessWidget {
       margin: EdgeInsets.only(top: getProportionateScreenWidth(20)),
       padding: EdgeInsets.only(top: getProportionateScreenWidth(20)),
       width: double.infinity,
-      height: 300,
       decoration: BoxDecoration(
         color: color,
         borderRadius: BorderRadius.only(
