@@ -9,9 +9,7 @@ import 'package:shop_app/main.dart';
 import 'package:shop_app/screens/home_screen/home_screen.dart';
 import 'package:shop_app/screens/login_success/login_success_screen.dart';
 import 'package:shop_app/size_config.dart';
-import 'package:supabase_flutter/supabase_flutter.dart';
 import 'sign_form.dart';
-import 'usernames.dart';
 
 class Body extends StatefulWidget {
   const Body({super.key});
@@ -106,7 +104,7 @@ class _BodyState extends State<Body> {
                     "Sign in with your Email and Password \nor continue with Social Media",
                     textAlign: TextAlign.center,
                   ),
-                  SizedBox(height: SizeConfig.screenHeight * 0.04),
+                  SizedBox(height: SizeConfig.screenHeight * 0.08),
                   SignForm(),
 
                   // Using Dropdown to display list of users from fakestoreapi
