@@ -1,3 +1,5 @@
+// This page is associated with supabase
+
 import 'package:flutter/material.dart';
 import 'package:shop_app/main.dart';
 import 'package:shop_app/screens/home_screen/home_screen.dart';
