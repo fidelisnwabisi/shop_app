@@ -26,15 +26,7 @@ class Body extends StatelessWidget {
               ),
               TopRoundedContainer(
                 color: Color(0xFF6f7f9),
-                child: Padding(
-                  padding: EdgeInsets.symmetric(
-                      horizontal: getProportionateScreenWidth(20)),
-                  child: Row(
-                    children: [
-                      ColorDot(product: product),
-                    ],
-                  ),
-                ),
+                child: ColorDots(product: product),
               )
             ],
           ),
@@ -44,13 +36,40 @@ class Body extends StatelessWidget {
   }
 }
 
-class ColorDot extends StatelessWidget {
-  const ColorDot({
+class ColorDots extends StatelessWidget {
+  const ColorDots({
     super.key,
     required this.product,
   });
 
   final Product product;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding:
+          EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20)),
+      child: Row(
+        children: [
+          ...List.generate(
+            product.colors.length,
+            (index) => ColorDot(color: product.colors[index]),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class ColorDot extends StatelessWidget {
+  const ColorDot({
+    super.key,
+    required this.color,
+    this.isSelected = false,
+  });
+
+  final Color color;
+  final bool isSelected;
 
   @override
   Widget build(BuildContext context) {
@@ -62,11 +81,12 @@ class ColorDot extends StatelessWidget {
       decoration: BoxDecoration(
         // color: product.colors[0],
         shape: BoxShape.circle,
-        border: Border.all(color: kPrimaryColor),
+        border:
+            Border.all(color: isSelected ? kPrimaryColor : Colors.transparent),
       ),
       child: DecoratedBox(
-          decoration:
-              BoxDecoration(color: product.colors[0], shape: BoxShape.circle)),
+        decoration: BoxDecoration(color: color, shape: BoxShape.circle),
+      ),
     );
   }
 }
