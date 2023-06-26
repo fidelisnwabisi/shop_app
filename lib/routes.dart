@@ -22,5 +22,5 @@ final Map<String, WidgetBuilder> routes = {
   OTPScreen.routeName: (context) => OTPScreen(),
   HomeScreen.routeName: (context) => HomeScreen(),
   DetailsScreen.routeName: (context) => DetailsScreen(),
-  PageLoader.routeName: (context) => PageLoader(),
+  // PageLoader.routeName: (context) => PageLoader(),
 };
