@@ -24,11 +24,49 @@ class Body extends StatelessWidget {
                 product: product,
                 pressOnSeeMore: () {},
               ),
-              TopRoundedContainer(color: Color(0xFF6f7f9), child: Row())
+              TopRoundedContainer(
+                color: Color(0xFF6f7f9),
+                child: Padding(
+                  padding: EdgeInsets.symmetric(
+                      horizontal: getProportionateScreenWidth(20)),
+                  child: Row(
+                    children: [
+                      ColorDot(product: product),
+                    ],
+                  ),
+                ),
+              )
             ],
           ),
         ),
       ],
+    );
+  }
+}
+
+class ColorDot extends StatelessWidget {
+  const ColorDot({
+    super.key,
+    required this.product,
+  });
+
+  final Product product;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: EdgeInsets.only(right: 2),
+      padding: EdgeInsets.all(8),
+      height: getProportionateScreenWidth(40),
+      width: getProportionateScreenWidth(40),
+      decoration: BoxDecoration(
+        // color: product.colors[0],
+        shape: BoxShape.circle,
+        border: Border.all(color: kPrimaryColor),
+      ),
+      child: DecoratedBox(
+          decoration:
+              BoxDecoration(color: product.colors[0], shape: BoxShape.circle)),
     );
   }
 }
