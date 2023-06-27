@@ -12,6 +12,10 @@ class CartScreen extends StatelessWidget {
     return Scaffold(
       appBar: buildAppBar(context),
       body: Body(),
+      bottomNavigationBar: Container(
+        height: 174,
+        color: Colors.blue,
+      ),
     );
   }
 
