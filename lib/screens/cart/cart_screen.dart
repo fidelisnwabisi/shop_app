@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:shop_app/models/cart.dart';
-
 import 'components/body.dart';
 
 class CartScreen extends StatelessWidget {
@@ -25,7 +24,7 @@ class CartScreen extends StatelessWidget {
             style: TextStyle(color: Colors.black),
           ),
           Text(
-            "${demoCart.length} Items",
+            "${demoCarts.length} Items",
             style: Theme.of(context).textTheme.bodySmall,
           )
         ],
