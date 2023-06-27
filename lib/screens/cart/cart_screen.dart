@@ -14,7 +14,17 @@ class CartScreen extends StatelessWidget {
       body: Body(),
       bottomNavigationBar: Container(
         height: 174,
-        color: Colors.blue,
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(30), topRight: Radius.circular(30)),
+          boxShadow: [
+            BoxShadow(
+                offset: Offset(0, -15),
+                blurRadius: 20,
+                color: Color(0xFFDADADA)),
+          ],
+        ),
       ),
     );
   }
