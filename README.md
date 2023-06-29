@@ -56,6 +56,12 @@ samples, guidance on mobile development, and a full API reference.
 ### Done
 ![Alt text](<assets/screenshots/Episode 5.gif>)
 
+## Episode 6 Your Cart
+
+[Your Cart - Complete E-Commerce App Flutter UI - Ep 6 - Speed Code](https://www.youtube.com/watch?v=sr0v1cfloJc)
+
+### Done
+
 # Converted GIFs at [ezGIF](https://ezgif.com)
 
 # [How to Add Supabase](https://supabase.com/docs/guides/getting-started/tutorials/with-flutter)
