@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+// import 'package:flutter_svg/flutter_svg.dart';
 import 'package:shop_app/components/default_button.dart';
-import 'package:shop_app/components/rounded_icon_btn.dart';
-import 'package:shop_app/constants.dart';
+// import 'package:shop_app/components/rounded_icon_btn.dart';
+// import 'package:shop_app/constants.dart';
 import 'package:shop_app/models/product.dart';
 import 'package:shop_app/size_config.dart';
 import 'color_dots.dart';

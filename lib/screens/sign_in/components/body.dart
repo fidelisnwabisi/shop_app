@@ -1,13 +1,11 @@
-import 'dart:async';
-
-import 'package:flutter/foundation.dart';
+// import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:shop_app/components/default_button.dart';
+// import 'package:shop_app/components/default_button.dart';
 import 'package:shop_app/components/no_account_text.dart';
 import 'package:shop_app/components/social_card.dart';
-import 'package:shop_app/main.dart';
-import 'package:shop_app/screens/home_screen/home_screen.dart';
-import 'package:shop_app/screens/login_success/login_success_screen.dart';
+// import 'package:shop_app/main.dart';
+// import 'package:shop_app/screens/home_screen/home_screen.dart';
+// import 'package:shop_app/screens/login_success/login_success_screen.dart';
 import 'package:shop_app/size_config.dart';
 import 'sign_form.dart';
 
