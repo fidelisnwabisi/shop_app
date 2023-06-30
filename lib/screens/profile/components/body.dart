@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:shop_app/constants.dart';
-
+import 'profile_menu.dart';
 import 'profile_picture.dart';
 
 class Body extends StatelessWidget {
@@ -13,14 +11,30 @@ class Body extends StatelessWidget {
       children: [
         ProfilePic(),
         SizedBox(height: 20),
-        Padding(
-          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-          child: TextButton(
-            onPressed: () {},
-            child: Row(
-              children: [],
-            ),
-          ),
+        ProfileMenu(
+          icon: "assets/icons/User Icon.svg",
+          text: "My Account",
+          press: () {},
+        ),
+        ProfileMenu(
+          icon: "assets/icons/Bell.svg",
+          text: "Notifications",
+          press: () {},
+        ),
+        ProfileMenu(
+          icon: "assets/icons/Settings.svg",
+          text: "Settings",
+          press: () {},
+        ),
+        ProfileMenu(
+          icon: "assets/icons/User Icon.svg",
+          text: "Help Center",
+          press: () {},
+        ),
+        ProfileMenu(
+          icon: "assets/icons/Log out.svg",
+          text: "Log out",
+          press: () {},
         ),
       ],
     );
